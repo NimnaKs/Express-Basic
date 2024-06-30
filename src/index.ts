@@ -2,11 +2,13 @@ import express,{Request,Response} from 'express';
 import userRouter from './controllers/userController';
 import bodyParser from 'body-parser';
 import mongoose from "mongoose";
+import cors from 'cors';
 
 const app = express();
 const port = 8000;
 
 app.use(bodyParser.json());
+app.use(cors())
 
 app.get("/", (req:Request, res:Response) => {
   res.send('Application is running.');
